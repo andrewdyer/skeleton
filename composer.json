@@ -4,12 +4,6 @@
     "keywords": ["framework", "slim"],
     "type": "project",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Andrew Dyer",
-            "email": "andrewdyer@outlook.com"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/"
