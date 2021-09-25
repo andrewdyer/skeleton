@@ -23,7 +23,7 @@ composer create-project andrewdyer/skeleton project_name
 ```
 
 ### Web Server
-Once installed, you can start a localhost web server by running the following command in terminal:
+Once installed, you can start a localhost web server by running the following command from the project root directory in terminal:
 ```text
 php -S localhost:8888 -t public public/index.php
 ```
