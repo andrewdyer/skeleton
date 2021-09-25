@@ -13,13 +13,17 @@ A starter structure built with the [Slim PHP framework](https://www.slimframewor
 Licensed under the [MIT license](https://opensource.org/licenses/MIT). Totally free for private or commercial projects.
 
 ## Get Started
+### Introduction
+I created this clutter-free, boilerplate project for myself just to save a little time when build my next big idea. 
+
 ### Installation
+Run the following command in terminal to create a new skeleton project:
 ```text
 composer create-project andrewdyer/skeleton project_name
 ```
 
 ### Web Server
-Run the following command in terminal to start localhost web server:
+Once installed, you can start a localhost web server by running the following command in terminal:
 ```text
 php -S localhost:8888 -t public public/index.php
 ```
@@ -29,5 +33,6 @@ If you are having general issues with this project, then please feel free to con
 
 If you believe you have found an issue, please report it using the [issue tracker](https://github.com/andrewdyer/skeleton/issues), or better yet, fork the repository and submit a pull request.
 
-If you're using this as your starter structure, I'd love to hear your thoughts!
+Feel free to submit any minor enhancements too. Please do not contribute any big additions as the purpose of this project is to be a simple starting point.
 
+If you're using this as your starter structure, I'd love to hear your thoughts!
