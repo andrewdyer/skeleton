@@ -12,14 +12,14 @@ A starter structure built with the [Slim PHP framework](https://www.slimframewor
 ## License
 Licensed under the [MIT license](https://opensource.org/licenses/MIT). Totally free for private or commercial projects.
 
-## Installation
+## Get Started
+### Installation
 ```text
 composer create-project andrewdyer/skeleton project_name
 ```
-## Get Started
+
 ### Web Server
 Run the following command in terminal to start localhost web server:
-
 ```text
 php -S localhost:8888 -t public public/index.php
 ```
