@@ -14,7 +14,7 @@ Licensed under the [MIT license](https://opensource.org/licenses/MIT). Totally f
 
 ## Get Started
 ### Introduction
-I created this clutter-free, boilerplate project for myself just to save a little time when build my next big idea. 
+I created this clutter-free, boilerplate project for myself just to save a little time when developing my next big idea. 
 
 ### Installation
 Run the following command in terminal to create a new skeleton project:
