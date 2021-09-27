@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class UsersController extends AbstractController
+class UsersController extends Controller
 {
     public function create(Request $request, Response $response): Response
     {
