@@ -19,6 +19,7 @@
     },
     "require": {
         "php": "^7.3 || ^8.0",
+        "fakerphp/faker": "^1.16",
         "illuminate/database": "^8.61",
         "monolog/monolog": "^2.3",
         "robmorgan/phinx": "^0.12.8",
