@@ -19,7 +19,7 @@ I created this clutter-free, boilerplate project for myself just to save a littl
 ### Installation
 Run the following command in terminal to create a new skeleton project:
 ```text
-composer create-project andrewdyer/skeleton project_name
+composer create-project --prefer-dist --stability=dev andrewdyer/skeleton:dev-feat/database project_name
 ```
 
 ### Web Server
