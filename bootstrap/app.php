@@ -49,4 +49,5 @@ $app = new Slim\App([
 ]);
 
 require_once base_path('bootstrap/container.php');
+require_once base_path('routes/api.php');
 require_once base_path('routes/web.php');
