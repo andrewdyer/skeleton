@@ -6,7 +6,7 @@ use Monolog\Logger;
 use Slim\Container;
 use Slim\Views\Twig;
 
-abstract class AbstractController
+abstract class Controller
 {
     private $container;
 
