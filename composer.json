@@ -19,7 +19,9 @@
     },
     "require": {
         "php": "^7.3 || ^8.0",
+        "illuminate/database": "^8.61",
         "monolog/monolog": "^2.3",
+        "robmorgan/phinx": "^0.12.8",
         "slim/slim": "^3.12",
         "slim/twig-view": "^2.5",
         "vlucas/phpdotenv": "^5.3"

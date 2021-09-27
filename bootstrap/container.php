@@ -2,6 +2,11 @@
 
 $container = $app->getContainer();
 
+$capsule = new Illuminate\Database\Capsule\Manager();
+$capsule->addConnection($container->get('settings')->get('database'));
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
 $container['logger'] = function ($container) {
     $config = $container->get('settings')->get('logger');
 
