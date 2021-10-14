@@ -23,9 +23,9 @@ class UsersController extends Controller
         return $response->withJson($user, 201);
     }
 
-    public function delete(Request $request, Response $response, array $args): Response
+    public function delete(Request $request, Response $response, int $userId): Response
     {
-        $user = User::findOrFail($args['user_id']);
+        $user = User::findOrFail($userId);
         $user->delete();
 
         return $response->withStatus(204);
@@ -38,16 +38,16 @@ class UsersController extends Controller
         return $response->withJson($users);
     }
 
-    public function show(Request $request, Response $response, array $args): Response
+    public function show(Request $request, Response $response, int $userId): Response
     {
-        $user = User::findOrFail($args['user_id']);
+        $user = User::findOrFail($userId);
 
         return $response->withJson($user);
     }
 
-    public function update(Request $request, Response $response, array $args): Response
+    public function update(Request $request, Response $response, int $userId): Response
     {
-        $user = User::findOrFail($args['user_id']);
+        $user = User::findOrFail($userId);
 
         $data = $request->getParsedBody();
 
