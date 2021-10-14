@@ -3,7 +3,7 @@
 use App\Database\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-final class CreateUserRolesTable extends Migration
+final class CreateUsersRolesTable extends Migration
 {
     public function down(): void
     {
