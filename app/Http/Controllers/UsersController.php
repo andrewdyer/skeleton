@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Commands\CreateUserCommand;
+use App\Commands\DeleteUserCommand;
+use App\Commands\UpdateUserCommand;
 use App\Models\User;
-use Illuminate\Support\Arr;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -11,14 +13,7 @@ class UsersController extends Controller
 {
     public function create(Request $request, Response $response): Response
     {
-        $data = $request->getParsedBody();
-
-        $user = new User();
-        $user->email = Arr::get($data, 'email');
-        $user->first_name = Arr::get($data, 'first_name');
-        $user->last_name = Arr::get($data, 'last_name');
-        $user->password = password_hash(Arr::get($data, 'password'), PASSWORD_DEFAULT);
-        $user->save();
+        $user = $this->getCommandBus()->handle(new CreateUserCommand($request->getParsedBody()));
 
         return $response->withJson($user, 201);
     }
@@ -26,7 +21,8 @@ class UsersController extends Controller
     public function delete(Request $request, Response $response, int $userId): Response
     {
         $user = User::findOrFail($userId);
-        $user->delete();
+
+        $this->getCommandBus()->handle(new DeleteUserCommand($user));
 
         return $response->withStatus(204);
     }
@@ -49,25 +45,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($userId);
 
-        $data = $request->getParsedBody();
-
-        if ($email = Arr::get($data, 'email')) {
-            $user->email = $email;
-        }
-
-        if ($firstName = Arr::get($data, 'first_name')) {
-            $user->first_name = $firstName;
-        }
-
-        if ($lastName = Arr::get($data, 'last_name')) {
-            $user->last_name = $lastName;
-        }
-
-        if ($password = Arr::get($data, 'password')) {
-            $user->password = password_hash($password, PASSWORD_DEFAULT);
-        }
-
-        $user->save();
+        $user = $this->getCommandBus()->handle(new UpdateUserCommand($user, $request->getParsedBody()));
 
         return $response->withJson($user);
     }

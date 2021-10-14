@@ -11,6 +11,9 @@ $container['command-bus'] = function () {
     $inflector = new League\Tactician\Handler\MethodNameInflector\HandleInflector();
 
     $locator = new League\Tactician\Handler\Locator\InMemoryLocator();
+    $locator->addHandler(new App\Handlers\CreateUserHandler(), App\Commands\CreateUserCommand::class);
+    $locator->addHandler(new App\Handlers\DeleteUserHandler(), App\Commands\DeleteUserCommand::class);
+    $locator->addHandler(new App\Handlers\UpdateUserHandler(), App\Commands\UpdateUserCommand::class);
 
     $nameExtractor = new League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor();
 
