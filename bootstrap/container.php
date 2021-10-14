@@ -2,6 +2,10 @@
 
 $container = $app->getContainer();
 
+$container['foundHandler'] = function () {
+    return new Slim\Handlers\Strategies\RequestResponseArgs();
+};
+
 $container['logger'] = function ($container) {
     $config = $container->get('settings')->get('logger');
 
