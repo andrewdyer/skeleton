@@ -3,7 +3,7 @@
 use App\Database\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateUsersTable extends Migration
+final class CreateUsersTable extends Migration
 {
     public function down(): void
     {
@@ -14,10 +14,10 @@ class CreateUsersTable extends Migration
     {
         $this->getSchema()->create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email');
-            $table->string('first_name', 100);
-            $table->string('last_name', 100);
-            $table->text('password');
+            $table->string('email')->unique();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('password');
             $table->timestamps();
         });
     }
