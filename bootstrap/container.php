@@ -7,6 +7,10 @@ $capsule->addConnection($container->get('settings')->get('database'));
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
+$container['foundHandler'] = function () {
+    return new Slim\Handlers\Strategies\RequestResponseArgs();
+};
+
 $container['logger'] = function ($container) {
     $config = $container->get('settings')->get('logger');
 
