@@ -7,6 +7,20 @@ $capsule->addConnection($container->get('settings')->get('database'));
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
+$container['command-bus'] = function () {
+    $inflector = new League\Tactician\Handler\MethodNameInflector\HandleInflector();
+
+    $locator = new League\Tactician\Handler\Locator\InMemoryLocator();
+
+    $nameExtractor = new League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor();
+
+    $lockingMiddleware = new League\Tactician\Plugins\LockingMiddleware();
+
+    $commandHandlerMiddleware = new League\Tactician\Handler\CommandHandlerMiddleware($nameExtractor, $locator, $inflector);
+
+    return new League\Tactician\CommandBus([$lockingMiddleware, $commandHandlerMiddleware]);
+};
+
 $container['foundHandler'] = function () {
     return new Slim\Handlers\Strategies\RequestResponseArgs();
 };

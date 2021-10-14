@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use League\Tactician\CommandBus;
 use Monolog\Logger;
 use Slim\Container;
 use Slim\Views\Twig;
@@ -13,6 +14,11 @@ abstract class Controller
     public function __construct(Container $container)
     {
         $this->container = $container;
+    }
+
+    protected function getCommandBus(): CommandBus
+    {
+        return $this->getContainer()->get('command-bus');
     }
 
     protected function getContainer(): Container
