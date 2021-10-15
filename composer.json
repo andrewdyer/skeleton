@@ -32,6 +32,12 @@
         "phpunit/phpunit": "^9.5",
         "symfony/var-dumper": "^5.3"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "workbench/*/"
+        }
+    ],
     "scripts": {
         "post-root-package-install": [
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
