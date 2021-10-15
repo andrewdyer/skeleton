@@ -5,6 +5,10 @@ $app->group('/api/v1', function () {
         $this->get('', App\Http\Controllers\PermissionsController::class . ':list');
     });
 
+    $this->group('/roles', function () {
+        $this->get('', App\Http\Controllers\RolesController::class . ':list');
+    });
+
     $this->group('/users', function () {
         $this->group('/{user_id}', function () {
             $this->delete('', App\Http\Controllers\UsersController::class . ':delete');
