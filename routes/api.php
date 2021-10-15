@@ -2,6 +2,7 @@
 
 $app->group('/api/v1', function () {
     $this->group('/permissions', function () {
+        $this->get('/{permission_id}', App\Http\Controllers\PermissionsController::class . ':show');
         $this->get('', App\Http\Controllers\PermissionsController::class . ':list');
     });
 

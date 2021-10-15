@@ -14,4 +14,11 @@ class PermissionsController extends Controller
 
         return $response->withJson($permissions);
     }
+
+    public function show(Request $request, Response $response, int $permissionId): Response
+    {
+        $permission = Permission::findOrFail($permissionId);
+
+        return $response->withJson($permission);
+    }
 }
