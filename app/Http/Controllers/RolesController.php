@@ -14,4 +14,11 @@ class RolesController extends Controller
 
         return $response->withJson($roles);
     }
+
+    public function show(Request $request, Response $response, int $roleId): Response
+    {
+        $role = Role::findOrFail($roleId);
+
+        return $response->withJson($role);
+    }
 }

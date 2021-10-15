@@ -7,6 +7,7 @@ $app->group('/api/v1', function () {
     });
 
     $this->group('/roles', function () {
+        $this->get('/{role_id}', App\Http\Controllers\RolesController::class . ':show');
         $this->get('', App\Http\Controllers\RolesController::class . ':list');
     });
 
