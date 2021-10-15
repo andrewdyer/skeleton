@@ -1,6 +1,10 @@
 <?php
 
 $app->group('/api/v1', function () {
+    $this->group('/permissions', function () {
+        $this->get('', App\Http\Controllers\PermissionsController::class . ':list');
+    });
+
     $this->group('/users', function () {
         $this->group('/{user_id}', function () {
             $this->delete('', App\Http\Controllers\UsersController::class . ':delete');
